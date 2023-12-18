@@ -1,0 +1,39 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Rust Debug (LLDB)",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceFolder}/target/debug/L33TC0D3.exe", // Adjust the path to your binary
+            "args": [], // Optional: Command-line arguments for your Rust program
+            "cwd": "${workspaceFolder}",
+            "stopOnEntry": false, // Set this to true if you want to stop on the main function
+            "sourceLanguages": ["rust"],
+            "sourceMap": {
+                "/path/to/your/rust/project": "${workspaceFolder}"
+            },
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for Rust",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "preRunCommands": [], // Optional: Commands to run before starting debugging
+            "postRunCommands": [], // Optional: Commands to run after debugging ends
+            "launchCompleteCommand": "exec-wrapper run", // Optional: A command to run when debugging completes
+            "cargo": {
+                "args": ["build"], // Optional: Additional arguments for the 'cargo build' command
+                "filter": {
+                    "name": "L33TC0D3", // Your Rust project name
+                    "kind": "bin"
+                }
+            },
+            "env": {}, // Optional: Environment variables to set
+            "externalConsole": false, // Set this to true if you want to use an external console
+            "MIMode": "lldb",
+            "internalConsoleOptions": "neverOpen"
+        }
+    ]
+}
